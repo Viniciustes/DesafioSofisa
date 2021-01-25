@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioSofisa", "DesafioSofisa\DesafioSofisa.csproj", "{1E039198-30E8-4AE9-BE05-F42F67801622}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesafioSofisa - Domain", "DesafioSofisa - Domain", "{5538EB8B-C8AC-4E9F-A3FE-F52B513EE35E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AB8A7FE0-B0C4-4E36-8EFA-8AE13BC7CC27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesafioSofisa - Application", "DesafioSofisa - Application", "{2D52C8A3-4D29-40F2-8369-B90263EBF60C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{645B1986-1EC4-4A1E-89F2-DAD84E1C0606}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesafioSofisa - Test", "DesafioSofisa - Test", "{6E2FD139-51EF-4348-8F03-5D1E3692DE09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{9BA2EA39-0DCF-4ADB-A702-068D3BBAD2FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesafioSofisa - Infrastructure", "DesafioSofisa - Infrastructure", "{DF3C8143-926F-4113-B224-F80134603F42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Data", "Infrastructure.Data\Infrastructure.Data.csproj", "{D9E3B509-3C12-404A-8A5F-359AD82A428A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E039198-30E8-4AE9-BE05-F42F67801622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E039198-30E8-4AE9-BE05-F42F67801622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E039198-30E8-4AE9-BE05-F42F67801622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E039198-30E8-4AE9-BE05-F42F67801622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8A7FE0-B0C4-4E36-8EFA-8AE13BC7CC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8A7FE0-B0C4-4E36-8EFA-8AE13BC7CC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8A7FE0-B0C4-4E36-8EFA-8AE13BC7CC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8A7FE0-B0C4-4E36-8EFA-8AE13BC7CC27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645B1986-1EC4-4A1E-89F2-DAD84E1C0606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645B1986-1EC4-4A1E-89F2-DAD84E1C0606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645B1986-1EC4-4A1E-89F2-DAD84E1C0606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645B1986-1EC4-4A1E-89F2-DAD84E1C0606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA2EA39-0DCF-4ADB-A702-068D3BBAD2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA2EA39-0DCF-4ADB-A702-068D3BBAD2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA2EA39-0DCF-4ADB-A702-068D3BBAD2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA2EA39-0DCF-4ADB-A702-068D3BBAD2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9E3B509-3C12-404A-8A5F-359AD82A428A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9E3B509-3C12-404A-8A5F-359AD82A428A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9E3B509-3C12-404A-8A5F-359AD82A428A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9E3B509-3C12-404A-8A5F-359AD82A428A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB8A7FE0-B0C4-4E36-8EFA-8AE13BC7CC27} = {5538EB8B-C8AC-4E9F-A3FE-F52B513EE35E}
+		{645B1986-1EC4-4A1E-89F2-DAD84E1C0606} = {2D52C8A3-4D29-40F2-8369-B90263EBF60C}
+		{9BA2EA39-0DCF-4ADB-A702-068D3BBAD2FC} = {6E2FD139-51EF-4348-8F03-5D1E3692DE09}
+		{D9E3B509-3C12-404A-8A5F-359AD82A428A} = {DF3C8143-926F-4113-B224-F80134603F42}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EEFBE31-CDFE-4348-9348-70400C9C321B}
+	EndGlobalSection
+EndGlobal
