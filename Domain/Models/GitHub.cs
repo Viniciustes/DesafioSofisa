@@ -6,6 +6,23 @@ namespace Domain.Models
 {
     public class GitHub
     {
+        // For AutoMapper
+        public GitHub() { }
+
+        // For Tests
+        public GitHub(int id, int idGitHub, string name, string uRL, string language, string description, DateTime dtAtualizacao, string donoRepositorio, bool favorite)
+        {
+            Id = id;
+            IdGitHub = idGitHub;
+            Name = name;
+            URL = uRL;
+            Language = language;
+            Description = description;
+            DtAtualizacao = dtAtualizacao;
+            DonoRepositorio = donoRepositorio;
+            Favorite = favorite;
+        }
+
         public int Id { get; private set; }
 
         [JsonProperty("id")]
@@ -25,10 +42,9 @@ namespace Domain.Models
 
         [JsonProperty("updated_at")]
         public DateTime DtAtualizacao { get; private set; }
-
-        [NotMapped]
-        [JsonProperty("owner")]
-        public Owner DonoRepositorio { get; private set; }
+        
+        [JsonProperty("owner/login")]
+        public string DonoRepositorio { get; private set; }
         public bool Favorite { get; private set; }
 
         public void ToogleBookmark()

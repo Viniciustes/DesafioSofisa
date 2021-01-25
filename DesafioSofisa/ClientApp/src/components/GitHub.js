@@ -28,14 +28,10 @@ export class GitHub extends Component {
     }
 
     async handleChangeFiltroNome(event) {
-
-        this.setState({ filtroNome: event.target.value });
-
-        if (this.state.gitHubsFiltered.length === 0) {
-            this.state.gitHubsFiltered = this.state.gitHubs.data;
-        }
-
-        this.state.gitHubs.data = this.state.gitHubsFiltered.filter(x => x.nome.toLowerCase().includes(this.state.filtroNome.toLowerCase()))
+        this.setState({
+            filtroNome: event.target.value,
+            gitHubs: this.state.gitHubsFiltered.filter(x => x.nome.toLowerCase().includes(this.state.filtroNome.toLowerCase()))
+        });
     }
 
     handleChangeUsuario(event) {
@@ -46,13 +42,16 @@ export class GitHub extends Component {
         await fetch(`api/github/${id}`, { method: 'post' });
 
         this.populateGitHub();
-        this.state.gitHubsFiltered = this.state.gitHubs.data;
     }
 
     async populateGitHub() {
         const response = await fetch('api/github');
         const data = await response.json();
-        this.setState({ gitHubs: data, loading: false });
+        this.setState({
+            gitHubs: data.data,
+            loading: false,
+            gitHubsFiltered: data.data
+        });
     }
 
     async populateGitHubDB() {
@@ -85,7 +84,7 @@ export class GitHub extends Component {
                     {this.state.loading && <p><em>Loading...</em></p>}
                     {!this.state.loading &&
                         <div>
-                            {this.state.gitHubs.data.length > 0 &&
+                            {this.state.gitHubs.length > 0 &&
                                 <div>
                                     <div class="row">
                                         <div class="col-md-12 bg-light text-right">
@@ -106,7 +105,7 @@ export class GitHub extends Component {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {this.state.gitHubs.data.map(git =>
+                                            {this.state.gitHubs.map(git =>
                                                 <tr key={git.id}>
                                                     <td>
                                                         <NavLink tag={Link} className="text-dark" to={{ pathname: '/git-hub-detalhe', idPropos: git.id }} >{git.nome}</NavLink>

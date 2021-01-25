@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
-import { useHistory } from "react-router-dom";
 
 export class GitHubDetalhe extends Component {
     static displayName = GitHubDetalhe.name;
@@ -13,8 +12,6 @@ export class GitHubDetalhe extends Component {
             loading: true,
             gitHub: {}
         };
-
-        // let history = useHistory();
     }
 
     componentDidMount() {
@@ -41,6 +38,12 @@ export class GitHubDetalhe extends Component {
                 <p>Linguagem:&nbsp;{this.state.gitHub.linguagem}</p>
                 <p>Data Atualização:&nbsp;{Moment(this.state.gitHub.dtAtualizacao).format('DD/MM/YYYY')}</p>
                 <p>Dono repositório: &nbsp;{this.state.gitHub.donoRepositorio}</p>
+
+                <div class="row">
+                    <div class="col-md-12 bg-light text-right">
+                        <button type="button" onClick={() => this.props.history.push('/')} class="btn btn-primary">Voltar</button>
+                    </div>
+                </div>
             </>
         );
     }

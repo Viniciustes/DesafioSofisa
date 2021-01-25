@@ -4,7 +4,6 @@ using AutoMapper;
 using Domain.Interfaces;
 using Domain.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -51,13 +50,13 @@ namespace Domain.Services
         {
             var entities = await _repository.GetAsync();
 
-            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities);
+            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities.OrderBy(x=> x.Name));
         }
         public async Task<IEnumerable<GitHubViewModel>> BuscarRepositoriosFavoritos()
         {
             var entities = await _repository.SearchAsync(x => x.Favorite);
 
-            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities);
+            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities.OrderBy(x => x.Name));
         }
         public async Task<GitHubViewModel> DetalharRepositorio(int id)
         {
@@ -83,7 +82,7 @@ namespace Domain.Services
         {
             var entities = await _repository.SearchAsync(x => x.Name.ToLower().Contains(nomeRepositorio.ToLower()));
 
-            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities);
+            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities.OrderBy(x => x.Name));
         }
 
         /// <summary>

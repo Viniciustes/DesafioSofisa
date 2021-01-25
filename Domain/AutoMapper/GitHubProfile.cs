@@ -16,7 +16,7 @@ namespace Domain.AutoMapper
                     .ForMember(dest => dest.URL, opt => opt.MapFrom(src => src.URL))
                     .ForMember(dest => dest.Linguagem, opt => opt.MapFrom(src => src.Language))
                     .ForMember(dest => dest.Descricao, opt => opt.MapFrom(src => src.Description))
-                    .ForMember(dest => dest.DonoRepositorio, opt => opt.MapFrom(src => src.DonoRepositorio.Login))
+                    .ForMember(dest => dest.DonoRepositorio, opt => opt.MapFrom(src => src.DonoRepositorio))
                     .ForMember(dest => dest.DtAtualizacao, opt => opt.MapFrom(src => src.DtAtualizacao))
                     .ForMember(dest => dest.Favorito, opt => opt.MapFrom(src => src.Favorite));
         }
