@@ -6,6 +6,8 @@ namespace Infrastructure.Data.Repositories
 {
     public class GitHubRepository : Repository<GitHub>, IGitHubRepository
     {
-        public GitHubRepository(DesafioSofiaContext context) : base(context) { }
+        public GitHubRepository(DesafioSofiaContext context) : base(context)
+        {
+        }
     }
 }

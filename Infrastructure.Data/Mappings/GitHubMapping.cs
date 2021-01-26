@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.Mappings
 {
-    class GitHubMapping : IEntityTypeConfiguration<GitHub>
+    internal class GitHubMapping : IEntityTypeConfiguration<GitHub>
     {
         public void Configure(EntityTypeBuilder<GitHub> builder)
         {

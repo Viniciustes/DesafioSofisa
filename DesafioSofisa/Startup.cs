@@ -21,10 +21,11 @@ namespace DesafioSofisa
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllersWithViews();
 
             services.AddSpaStaticFiles(configuration =>
@@ -44,6 +45,7 @@ namespace DesafioSofisa
             // Infrastructure Data
             services.AddDbContext<DesafioSofiaContext>(opt => opt.UseInMemoryDatabase("DatabaseConnection"));
         }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

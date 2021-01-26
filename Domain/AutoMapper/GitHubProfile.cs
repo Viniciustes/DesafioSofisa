@@ -4,11 +4,11 @@ using Domain.Models;
 
 namespace Domain.AutoMapper
 {
-    class GitHubProfile : Profile
+    internal class GitHubProfile : Profile
     {
         public GitHubProfile()
         {
-            //Model to ViewModel 
+            //Model to ViewModel
             CreateMap<GitHub, GitHubViewModel>()
                     .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                     .ForMember(dest => dest.IdGitHub, opt => opt.MapFrom(src => src.IdGitHub))

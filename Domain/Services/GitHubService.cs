@@ -13,15 +13,17 @@ namespace Domain.Services
 {
     public class GitHubService : IGitHubService
     {
-        const string ApiGitHubURL = "https://api.github.com";
+        private const string ApiGitHubURL = "https://api.github.com";
 
         private readonly IMapper _mapper;
         private readonly IGitHubRepository _repository;
+
         public GitHubService(IMapper mapper, IGitHubRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
         }
+
         public async Task CarregarRepositorioBaseDeDados(string repositorioUsuario)
         {
             await LimpaBaseDeDados();
@@ -39,18 +41,21 @@ namespace Domain.Services
 
             await _repository.AddRanger(gitHub);
         }
+
         public async Task<IEnumerable<GitHubViewModel>> BuscarRepositorios()
         {
             var entities = await _repository.GetAsync();
 
-            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities.OrderBy(x=> x.Name));
+            return _mapper.Map<IEnumerable<GitHubViewModel>>(entities.OrderBy(x => x.Name));
         }
+
         public async Task<IEnumerable<GitHubViewModel>> BuscarRepositoriosFavoritos()
         {
             var entities = await _repository.SearchAsync(x => x.Favorite);
 
             return _mapper.Map<IEnumerable<GitHubViewModel>>(entities.OrderBy(x => x.Name));
         }
+
         public async Task<GitHubViewModel> DetalharRepositorio(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
@@ -60,6 +65,7 @@ namespace Domain.Services
 
             return _mapper.Map<GitHubViewModel>(entity);
         }
+
         public async Task MarcarRepositorioFavorito(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
@@ -71,6 +77,7 @@ namespace Domain.Services
 
             _repository.Update(entity);
         }
+
         public async Task<IEnumerable<GitHubViewModel>> ProcurarRepositorios(string nomeRepositorio)
         {
             var entities = await _repository.SearchAsync(x => x.Name.ToLower().Contains(nomeRepositorio.ToLower()));
@@ -84,7 +91,6 @@ namespace Domain.Services
         /// <returns></returns>
         private async Task LimpaBaseDeDados()
         {
-
             var entities = await _repository.GetAsync();
             if (entities.Any())
             {

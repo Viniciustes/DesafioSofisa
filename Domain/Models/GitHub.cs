@@ -41,9 +41,10 @@ namespace Domain.Models
 
         [JsonProperty("updated_at")]
         public DateTime DtAtualizacao { get; private set; }
-        
+
         [JsonProperty("owner/login")]
         public string DonoRepositorio { get; private set; }
+
         public bool Favorite { get; private set; }
 
         public void ToogleBookmark()
