@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Models
 {
@@ -23,7 +22,7 @@ namespace Domain.Models
             Favorite = favorite;
         }
 
-        public int Id { get; private set; }
+        public int Id { get; }
 
         [JsonProperty("id")]
         public int IdGitHub { get; private set; }

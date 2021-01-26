@@ -11,7 +11,7 @@ namespace Infrastructure.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        public readonly DesafioSofiaContext _context;
+        private readonly DesafioSofiaContext _context;
         public Repository(DesafioSofiaContext context)
         {
             _context = context;

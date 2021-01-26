@@ -24,27 +24,20 @@ namespace Domain.Services
         }
         public async Task CarregarRepositorioBaseDeDados(string repositorioUsuario)
         {
-            try
-            {
-                await LimpaBaseDeDados();
+            await LimpaBaseDeDados();
 
-                var URL = $"{ApiGitHubURL}/users/{repositorioUsuario}/repos";
+            var URL = $"{ApiGitHubURL}/users/{repositorioUsuario}/repos";
 
-                var httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.UserAgent.TryParseAdd("request");
 
-                var response = await httpClient.GetAsync(URL);
+            var response = await httpClient.GetAsync(URL);
 
-                var result = await response.Content.ReadAsStringAsync();
+            var result = await response.Content.ReadAsStringAsync();
 
-                var gitHub = JsonConvert.DeserializeObject<List<GitHub>>(result);
+            var gitHub = JsonConvert.DeserializeObject<List<GitHub>>(result);
 
-                await _repository.AddRanger(gitHub);
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
+            await _repository.AddRanger(gitHub);
         }
         public async Task<IEnumerable<GitHubViewModel>> BuscarRepositorios()
         {

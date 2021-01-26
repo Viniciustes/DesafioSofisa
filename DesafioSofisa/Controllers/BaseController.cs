@@ -6,12 +6,7 @@ namespace DesafioSofisa.Controllers
     {
         protected new IActionResult Response(object result = null)
         {
-            var success = true;
-
-            if (result == null)
-            {
-                success = false;
-            }
+            var success = result != null;
 
             return Ok(new
             {
